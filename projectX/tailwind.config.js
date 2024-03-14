@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+      }
+,
       colors: {
         primary: {
           400:'#7D0A0A',
