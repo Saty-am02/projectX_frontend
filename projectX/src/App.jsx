@@ -7,29 +7,33 @@ import EvalutionNavbar from "./componetnts/EvalutionNavbar";
 import Exam from "./pages/evalutepages/Exam";
 import Question from "./pages/evalutepages/Question";
 import Script from "./pages/evalutepages/Script";
+import DevTeam from "./componetnts/DevTeam";
 
 const App = () => {
   return (
-    <main className='h-[100vh] bg-secondary-lightblue'>
+    <main className='h-[100vh]'>
       <Router>
-        < Navbar />
-        <Routes>
+      < Navbar />
+        <Routes>   
           <Route path="/" element={<Home />} />
           <Route path="/evaluate" element={
-        <>
-        <Evaluate />
-        <EvalutionNavbar />
-        </>
-        }>
-           
-            <Route path="script" element={<Script />} />
-            <Route path="question" element={<Question />} />
-            <Route path="exam" element={<Exam />} />
+                                          <>
+                                          <Evaluate />
+                                          <EvalutionNavbar />
+                                          </>
+                                          }>
+                                            <Route path="script" element={<Script />} />
+                                            <Route path="question" element={<Question />} />
+                                            <Route path="exam" element={<Exam />} />
           </Route>
           <Route path="/results" element={<Results />} />
-
+          <Route>
+            
+          </Route>
+          <Route path="/devteam" element={<DevTeam />} />
         </Routes>
       </Router>
+      
     </main>
   )
 }

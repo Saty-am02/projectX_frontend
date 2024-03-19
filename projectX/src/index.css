@@ -13,7 +13,7 @@ h2{
 }
 body
 {
-  background-color: #CDFAEA;
+  /* background-color: #F8FCEB; */
 }
 @font-face {
   font-family: Empyrean;
@@ -31,7 +31,14 @@ input[type=number] {
   font-family: Saveur;
   src: url("./fonts/saveur.otf") format("opentype");
 }
+@font-face {
+  font-family: Metro;
+  src: url("./fonts/metro-time-sign.ttf") format("opentype");
+}
 
+.timeLine{
+
+}
 @font-face {
   font-family: Saveurround;
   src: url("./fonts/saveurround.ttf") format("opentype");
@@ -228,3 +235,37 @@ body:has(.card[data-color="green"]:hover) {
     display: none;
   }
 }
+
+.tooltip-container {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.tooltip-content {
+  margin: 0;
+}
+
+.tooltip.visible {
+  opacity: 0.5;
+
+}
+
+.vertical-timeline-element-content h2 {
+  color: white;
+  font-size: x-large;
+}
+
+
+
