@@ -11,20 +11,14 @@ export default {
       }
 ,
       colors: {
-        primary: {
-          400:'#7D0A0A',
-          300:'#BF3131',
-          200:'#EAD196',
-          100:'#F3EDC8',
-          50:'#FBF9EE',
-        },
+        
         secondary: {
           lightblue:'#CDFAEA',
           lightyellow:'#FFCF96',
           lightorange:'#FF8080',
           lightenglishblue:'#6c8da4',
           darkEnglishblue:'#46627b',
-          400:'#2b4358',
+          400:'#000000',
         },
         vercomp: {
           yellow:'#F9F7C9',
@@ -44,6 +38,7 @@ export default {
         empyrean: "Empyrean" ,
         saveur:'Saveur',
         saveurround:'Saveurround',
+        metro:'Metro'
         // Add more custom font families as needed
       },
   },

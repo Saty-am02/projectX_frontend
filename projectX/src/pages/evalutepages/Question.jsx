@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Canvas } from '@react-three/fiber';
-import axios from "axios"
+
 
 const Question = () => {
   const [question, setQuestion] = useState('');
@@ -126,13 +125,6 @@ const Question = () => {
         {showSubmitButton && <button className='border-secondary-darkEnglishblue border-2 bg-secondary-lightorange  text-base rounded-3xl -mt-3 px-4 py-2 focus:outline-secondary-lightyellow w-64' 
         onClick={(event) => handleSubmit(event)}>Submit</button>}
       </div>
-
-      {/* <Canvas className='w-full bg-transparent relative top-40' camera={{ near: 0.1, far: 1000 }}>
-        <Suspense>
-          <directionalLight position={[1, 1, 1]} intensity={2} />
-          <ambientLight intensity={0.5} />
-        </Suspense>
-      </Canvas> */}
     </section>
   );
 };
