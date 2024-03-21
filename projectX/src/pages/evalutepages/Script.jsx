@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import '../../assets/css/cards.css'
 const Script = () => {
   const [exam, setExam] = useState('');
   const [subject, setSubject] = useState('');
@@ -18,12 +18,14 @@ const Script = () => {
   };
 
   return (
-    <section>
-      <div className='flex flex-col justify-center items-center relative top-48 gap-y-10'>
-
-        <select
+    <section >
+      <div className='flex flex-row justify-center items-center relative top-36 gap-y-10'>
+        
+        <div class="inputcon">
+          <div class="search-container">
+            <select
           name="exam"
-          className='border-secondary-darkEnglishblue border-2 bg-secondary-lightorange placeholder:text-black placeholder:text-base text-base rounded-xl p-2 placeholder:text-center focus:outline-secondary-lightyellow w-64'
+          class="input"
           value={exam}
           onChange={(e) => {
             setExam(e.target.value);
@@ -36,10 +38,15 @@ const Script = () => {
           <option value="4">Exam 4</option>
           <option value="5">Exam 5</option>
         </select>
+          </div>
+        </div>
 
-        <select
+
+        <div class="inputcon">
+          <div class="search-container">
+          <select
           name="subject"
-          className='border-secondary-darkEnglishblue border-2 bg-secondary-lightorange placeholder:text-black placeholder:text-base text-base rounded-xl p-2 placeholder:text-center focus:outline-secondary-lightyellow w-64'
+          className='input'
           value={subject}
           onChange={(e) => {
             setSubject(e.target.value);
@@ -52,7 +59,15 @@ const Script = () => {
           <option value="4">Subject 4</option>
           <option value="5">Subject 5</option>
         </select>
+          </div>
+        </div>
 
+        <div class="inputcon">
+          <div class="search-container">
+            <input class="input" type="text" placeholder='Total Questions'/>
+          </div>
+        </div>
+        <div className='absolute top-28'>
         {showSubmitButton && (
           <button
             className='border-secondary-darkEnglishblue border-2 bg-secondary-lightorange text-base rounded-3xl -mt-3 px-4 py-2 focus:outline-secondary-lightyellow w-64'
@@ -61,6 +76,8 @@ const Script = () => {
             Submit
           </button>
         )}
+        </div>
+        
       </div>
     </section>
   );

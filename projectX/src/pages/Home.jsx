@@ -103,12 +103,17 @@ const Home = () => {
         >
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            date="Course of action "
+            date="Course of Action"
             dateClassName='text-black'
-            iconStyle={{ background: 'black', color: '#F0F0F0', padding: '7px' }}
-            contentStyle={{ background: 'black', color: 'white', border: "2px solid red ", borderBlock: '#F0F0F0' }}
+            iconStyle={{ background: 'black', color: 'white' }}
+            contentStyle={{
+              background: "linear-gradient(90deg, hsla(205, 46%, 10%, 1) 0%, hsla(191, 28%, 23%, 1) 50%, hsla(207, 41%, 27%, 1) 100%)",
+              color: 'white',
+              border: "2px solid red",
+              borderBlock: '2px solid #F0F0F0'
+            }}
             contentArrowStyle={{ borderRight: '7px solid black' }}
-            icon={<img src={logo} className='hover:animate-none animate-spin-slow ease-in-out vertical-timeline-custom-line'></img>}
+            icon={<img src={logo} className='hover:animate-none animate-spin-slow ease-in-out p-3'></img>}
 
           >
             <h2 class="vertical-timeline-element-title">Operating Instructions</h2>
@@ -118,14 +123,18 @@ const Home = () => {
           </VerticalTimelineElement>
 
           <VerticalTimelineElement
-            className="vertical-timeline-element--work "
-            contentStyle={{ background: 'black', color: 'white', border: "2px solid red ", borderBlock: '#F0F0F0' }}
-            contentArrowStyle={{ borderRight: '7px solid  black' }}
-            date="	Evaluate "
+            className="vertical-timeline-element--work"
+            date="Evaluate"
             dateClassName='text-black'
             iconStyle={{ background: 'black', color: 'white' }}
-            icon={<img src={logo1}></img>}
-
+            contentStyle={{
+              background: "linear-gradient(90deg, hsla(205, 46%, 10%, 1) 0%, hsla(191, 28%, 23%, 1) 50%, hsla(207, 41%, 27%, 1) 100%)",
+              color: 'white',
+              border: "2px solid red",
+              borderBlock: '2px solid #F0F0F0'
+            }}
+            contentArrowStyle={{ borderRight: '7px solid black' }}
+            icon={<img src={logo2} alt="logo" />}
           >
             <h2 className="vertical-timeline-element-title text-white">Question</h2> <br />
             <h4 className="vertical-timeline-element-subtitle">1.	One Question Evaluate:</h4>
@@ -144,12 +153,17 @@ const Home = () => {
           </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            date="	Evaluate "
+            date="Evaluate"
             dateClassName='text-black'
             iconStyle={{ background: 'black', color: 'white' }}
-            contentStyle={{ background: 'black', color: 'white', border: "2px solid red ", borderBlock: '#F0F0F0' }}
-            contentArrowStyle={{ borderRight: '7px solid  black' }}
-            icon={<img src={logo2}></img>}
+            contentStyle={{
+              background: "linear-gradient(90deg, hsla(205, 46%, 10%, 1) 0%, hsla(191, 28%, 23%, 1) 50%, hsla(207, 41%, 27%, 1) 100%)",
+              color: 'white',
+              border: "2px solid red",
+              borderBlock: '2px solid #F0F0F0'
+            }}
+            contentArrowStyle={{ borderRight: '7px solid black' }}
+            icon={<img src={logo3} alt="logo" />}
           >
             <h2 className="vertical-timeline-element-title">Script</h2><br />
             <h4 className="vertical-timeline-element-subtitle">1.	Many Question Evaluate:</h4>
@@ -163,12 +177,17 @@ const Home = () => {
 
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            date="	Evaluate"
+            date="Evalute"
             dateClassName='text-black'
             iconStyle={{ background: 'black', color: 'white' }}
-            contentStyle={{ background: 'black', color: 'white', border: "2px solid red ", borderBlock: '#F0F0F0' }}
-            contentArrowStyle={{ borderRight: '7px solid  black' }}
-            icon={<img src={logo3}></img>}
+            contentStyle={{
+              background: "linear-gradient(90deg, hsla(205, 46%, 10%, 1) 0%, hsla(191, 28%, 23%, 1) 50%, hsla(207, 41%, 27%, 1) 100%)",
+              color: 'white',
+              border: "2px solid red",
+              borderBlock: '2px solid #F0F0F0'
+            }}
+            contentArrowStyle={{ borderRight: '7px solid black' }}
+            icon={<img src={logo4} alt="logo" />}
           >
             <h2 className="text-white">Exam</h2><br />
             <h4 className="vertical-timeline-element-subtitle">3.	Upload Answer Script:</h4>
@@ -195,7 +214,7 @@ const Home = () => {
               borderBlock: '2px solid #F0F0F0'
             }}
             contentArrowStyle={{ borderRight: '7px solid black' }}
-            icon={<img src={logo4} alt="logo" />}
+            icon={<img src={logo1} alt="logo" />}
           >
 
             <h2 className="vertical-timeline-element-title">Result</h2><br />
@@ -215,8 +234,13 @@ const Home = () => {
             className="vertical-timeline-element--work"
             date="Result"
             dateClassName='text-black'
-            iconStyle={{ background: 'black', color: 'white', border: 'white', }}
-            contentStyle={{ background: "linear-gradient(to right, #536976, #292e49)", color: 'white', border: "2px solid red" }}
+            iconStyle={{ background: 'black', color: 'white' }}
+            contentStyle={{
+              background: "linear-gradient(90deg, hsla(205, 46%, 10%, 1) 0%, hsla(191, 28%, 23%, 1) 50%, hsla(207, 41%, 27%, 1) 100%)",
+              color: 'white',
+              border: "2px solid red",
+              borderBlock: '2px solid #F0F0F0'
+            }}
             contentArrowStyle={{ borderRight: '7px solid black' }}
             icon={<img src={logo5} alt="logo" />}
           >
