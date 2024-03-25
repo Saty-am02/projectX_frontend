@@ -20,16 +20,14 @@ const App = () => {
                                           <>
                                           <Evaluate />
                                           <EvalutionNavbar />
+                                        
                                           </>
                                           }>
                                             <Route path="script" element={<Script />} />
                                             <Route path="question" element={<Question />} />
                                             <Route path="exam" element={<Exam />} />
           </Route>
-          <Route path="/results" element={<Results />} />
-          <Route>
-            
-          </Route>
+          <Route path="/results" element={<Results />} /> 
           <Route path="/devteam" element={<DevTeam />} />
         </Routes>
       </Router>

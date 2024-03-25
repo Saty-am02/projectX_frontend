@@ -19,8 +19,9 @@ const Script = () => {
 
   return (
     <section >
-      <div className='flex flex-row justify-center items-center relative top-36 gap-y-10'>
+      <div className='flex flex-col justify-center items-center relative top-24 gap-y-10'>
         
+        <div className='flex'>
         <div class="inputcon">
           <div class="search-container">
             <select
@@ -61,23 +62,19 @@ const Script = () => {
         </select>
           </div>
         </div>
+        </div>
 
-        <div class="inputcon">
-          <div class="search-container">
-            <input class="input" type="text" placeholder='Total Questions'/>
+
+        <div class="inputcon rounded-md">
+          <div class="search-container rounded-md">
+            <input class="input-number rounded-md text-center" type="text" placeholder='Total Questions'/>
           </div>
         </div>
-        <div className='absolute top-28'>
-        {showSubmitButton && (
-          <button
-            className='border-secondary-darkEnglishblue border-2 bg-secondary-lightorange text-base rounded-3xl -mt-3 px-4 py-2 focus:outline-secondary-lightyellow w-64'
-            onClick={handleSubmit}
-          >
-            Submit
-          </button>
-        )}
+        <div className='absolute top-48'>
+          {showSubmitButton && <button
+          className='buttons'
+          onClick={(event) => handleSubmit(event)}>Submit</button>}
         </div>
-        
       </div>
     </section>
   );

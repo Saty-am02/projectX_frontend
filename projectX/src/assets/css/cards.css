@@ -52,6 +52,26 @@
     font-size: 20px;
     border-radius: 50px;
   }
+  .input-number {
+    padding: 10px;
+    width: 175px;
+    background: linear-gradient(135deg, rgb(218, 232, 247) 0%, rgb(214, 229, 247) 100%);
+    border: none;
+    color: #9EBCD9;
+    font-size: 20px;
+    border-radius: 50px;
+  }
+  .input-question {
+    padding: 10px;
+    min-width: 700px;
+    max-height: 400px;
+    min-height: 50px;
+    background: linear-gradient(135deg, rgb(218, 232, 247) 0%, rgb(214, 229, 247) 100%);
+    border: none;
+    color: #9EBCD9;
+    font-size: 20px;
+    border-radius: 50px;
+  }
   
   .input:focus {
     outline: none;
