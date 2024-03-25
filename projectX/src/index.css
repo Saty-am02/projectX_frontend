@@ -77,9 +77,7 @@ body:has(.card[data-color="green"]:hover) {
     @apply bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent;
   }
 
-  .input {
-    @apply bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2.5 font-normal  ;
-  }
+  
 
   .textarea {
     @apply block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-200 focus:ring-blue-500 focus:border-blue-500 mt-2.5 font-normal  ;
@@ -90,11 +88,11 @@ body:has(.card[data-color="green"]:hover) {
   }
 
   .header {
-    @apply flex justify-between items-center sm:px-20 gap-x-20 px-1 py-4 max-w-3xl mx-auto absolute top-0 z-10 right-0 left-0;
+    @apply flex justify-between items-center sm:px-20 gap-x-20 px-1 py-4 max-w-xl mx-auto absolute top-0 z-10 right-0 left-0;
   }
 
   .Evaluateheader {
-    @apply flex justify-between items-center sm:px-20 gap-x-10 px-1 py-4 max-w-xl mx-auto absolute top-14 z-10 right-0 left-0;
+    @apply flex justify-center items-center text-base sm:px-20 gap-x-20 px-1 py-4 max-w-6xl mx-auto absolute top-14 z-10 right-0 left-0;
   }
 
   .footer {

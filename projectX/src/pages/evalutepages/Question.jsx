@@ -3,7 +3,7 @@ import React, { useRef, useState, useEffect } from 'react';
 
 const Question = () => {
   const [question, setQuestion] = useState('');
-  const [marks, setMarks] = useState(''); 
+  const [marks, setMarks] = useState('');
   const answerScriptInputRef = useRef(null);
   const expectedAnswerInputRef = useRef(null);
   const [answerScriptFileName, setAnswerScriptFileName] = useState("");
@@ -40,12 +40,12 @@ const Question = () => {
     queryParams.append('mark', marks);
 
     const url = 'http://127.0.0.1:8000/evaluate/one?' + queryParams.toString();
-    
+
     const formData = new FormData();
     formData.append('ES', expectedAnswer);
     formData.append('AS', answerScript);
 
-    const response = await fetch(url,{
+    const response = await fetch(url, {
       method: 'POST',
       // headers: headers,
       body: formData
@@ -67,64 +67,88 @@ const Question = () => {
 
   return (
     <section className=''>
-      <div className='flex flex-col justify-center items-center relative top-48 gap-y-10'>
+      <div className='flex flex-row justify-center items-center relative top-48 gap-y-10'>
+
+
+        <div class="inputcon">
+          <div class="search-container">
+            <input
+              type="text"
+              name="question"
+              placeholder="Enter the Question"
+              className='input'
+              onChange={(e) => setQuestion(e.target.value)}
+            />
+          </div>
+        </div>
+
+        <div class="inputcon">
+          <div class="search-container">
+            <input
+              type="number"
+              name="marks"
+              accept='numeric'
+              inputMode="numeric"
+              pattern="[0-9]{1,3}"
+              placeholder="Enter the Max Marks"
+              className='input'
+              min="0"
+              max="100"
+              onChange={(e) => setMarks(e.target.value)}
+            />
+          </div>
+        </div>
+
+
+        <div class="inputcon">
+          <div class="search-container">
+            <button
+              className='input'
+              onClick={handleAnswerScriptUpload}
+            >
+              {answerScriptFileName ? 'AnswerScript Uploaded' : 'Upload AnswerScript'}
+            </button>
+            <label className='text-secondary-lightenglishblue -mt-9'>{answerScriptFileName}</label>
+            <input
+              type="file"
+              ref={answerScriptInputRef}
+              name='ansc'
+              style={{ display: 'none' }}
+              onChange={(event) => handleFileChange(event, 'AnswerScript')}
+              accept='.pdf'
+            />
+          </div>
+        </div>
+
+
+        <div class="inputcon">
+          <div class="search-container">
+            <button
+              className='input'
+              onClick={handleExpectedAnswerUpload}
+            >
+              {expectedAnswerFileName ? 'ExpectedAnswer Uploaded' : 'Upload ExpectedAnswer'}
+            </button>
+            <label className='text-secondary-lightenglishblue -mt-9'>{expectedAnswerFileName}</label>
+
+            
+          </div>
+        </div>
         <input
-          type="text"
-          name="question"
-          placeholder="Enter the Question"
-          className='border-secondary-darkEnglishblue border-2 bg-secondary-lightorange placeholder:text-black placeholder:text-base text-base rounded-xl p-2 placeholder:text-center focus:outline-secondary-lightyellow w-64'
-          onChange={(e) => setQuestion(e.target.value)}
-        />
+              type="file"
+              ref={expectedAnswerInputRef}
+              name='expec'
+              style={{ display: 'none' }}
+              onChange={(event) => handleFileChange(event, 'ExpectedAnswer')}
+              accept='.pdf'
+            />
 
-        <input
-          type="number"
-          name="marks"
-          accept='numeric'
-          inputMode="numeric"
-          pattern="[0-9]{1,3}"
-          placeholder="Enter the Max Marks"
-          className="border-secondary-darkEnglishblue border-2 text-center bg-secondary-lightorange placeholder:text-black placeholder:text-base text-base rounded-xl p-2 placeholder:text-center focus:outline-secondary-lightyellow w-64"
-          min="0"
-          max="100"
-          onChange={(e) => setMarks(e.target.value)}
-        />
-
-        <button
-          className='border-secondary-darkEnglishblue border-2 bg-secondary-lightorange  text-base rounded-3xl p-2 focus:outline-secondary-lightyellow w-64'
-          onClick={handleAnswerScriptUpload}
-        >
-          {answerScriptFileName ? 'AnswerScript Uploaded' : 'Upload AnswerScript'}
-        </button>
-        <label className='text-secondary-lightenglishblue -mt-9'>{answerScriptFileName}</label>
-        <input
-          type="file"
-          ref={answerScriptInputRef}
-          name='ansc'
-          style={{ display: 'none' }}
-          onChange={(event) => handleFileChange(event, 'AnswerScript')}
-          accept='.pdf'
-        />
-
-        <button
-          className='border-secondary-darkEnglishblue border-2 bg-secondary-lightorange  text-base rounded-3xl -mt-3 px-4 py-2 focus:outline-secondary-lightyellow w-64'
-          onClick={handleExpectedAnswerUpload}
-        >
-          {expectedAnswerFileName ? 'ExpectedAnswer Uploaded' : 'Upload ExpectedAnswer'}
-        </button>
-        <label className='text-secondary-lightenglishblue -mt-9'>{expectedAnswerFileName}</label>
-
-        <input
-          type="file"
-          ref={expectedAnswerInputRef}
-          name='expec'
-          style={{ display: 'none' }}
-          onChange={(event) => handleFileChange(event, 'ExpectedAnswer')}
-          accept='.pdf'
-        />
-
-        {showSubmitButton && <button className='border-secondary-darkEnglishblue border-2 bg-secondary-lightorange  text-base rounded-3xl -mt-3 px-4 py-2 focus:outline-secondary-lightyellow w-64' 
-        onClick={(event) => handleSubmit(event)}>Submit</button>}
+        <div className='absolute top-48'>
+          {showSubmitButton && <button className='border-secondary-darkEnglishblue border-2 bg-secondary-lightorange  text-base rounded-3xl -mt-3 px-4 py-2 focus:outline-secondary-lightyellow w-64'
+            onClick={(event) => handleSubmit(event)}>Submit</button>}
+        </div>
       </div>
+
     </section>
   );
 };
