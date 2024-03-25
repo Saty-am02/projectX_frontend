@@ -29,8 +29,8 @@ const Home = () => {
         for (let i = 0; i < length; i++) {
           const from = oldText[i] || '';
           const to = newText[i] || '';
-          const start = Math.floor(Math.random() * 80);
-          const end = start + Math.floor(Math.random() * 80);
+          const start = Math.floor(Math.random() * 40);
+          const end = start + Math.floor(Math.random() * 40);
           this.queue.push({ from, to, start, end });
         }
         cancelAnimationFrame(this.frameRequest);
@@ -84,7 +84,7 @@ const Home = () => {
     let counter = 0;
     const next = () => {
       fx.setText(phrases[counter]).then(() => {
-        setTimeout(next, 1500);
+        setTimeout(next, 1200);
       });
       counter = (counter + 1) % phrases.length;
     };
@@ -107,20 +107,30 @@ const Home = () => {
             dateClassName='text-black'
             iconStyle={{ background: 'black', color: 'white' }}
             contentStyle={{
-              background: "linear-gradient(90deg, hsla(205, 46%, 10%, 1) 0%, hsla(191, 28%, 23%, 1) 50%, hsla(207, 41%, 27%, 1) 100%)",
-              color: 'white',
-              border: "2px solid red",
-              borderBlock: '2px solid #F0F0F0'
+              background: '#011522', color: 'white'
             }}
             contentArrowStyle={{ borderRight: '7px solid black' }}
-            icon={<img src={logo} className='hover:animate-none animate-spin-slow ease-in-out p-3'></img>}
-
+            icon={<img src={logo} className='hover:animate-none animate-spin-slow ease-in-out p-3' alt="Logo" />}
           >
+
+            <div className='flex mb-3'>
+              <div class="circle">
+                <span class="red box"></span>
+              </div>
+              <div class="circle">
+                <span class="yellow box"></span>
+              </div>
+              <div class="circle">
+                <span class="green box"></span>
+              </div>
+            </div>
             <h2 class="vertical-timeline-element-title">Operating Instructions</h2>
 
             <p>The following steps outline how to navigate the website effectively.</p>
 
-          </VerticalTimelineElement>
+
+
+          </VerticalTimelineElement >
 
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
@@ -128,14 +138,22 @@ const Home = () => {
             dateClassName='text-black'
             iconStyle={{ background: 'black', color: 'white' }}
             contentStyle={{
-              background: "linear-gradient(90deg, hsla(205, 46%, 10%, 1) 0%, hsla(191, 28%, 23%, 1) 50%, hsla(207, 41%, 27%, 1) 100%)",
-              color: 'white',
-              border: "2px solid red",
-              borderBlock: '2px solid #F0F0F0'
+              background: '#011522', color: 'white'
             }}
             contentArrowStyle={{ borderRight: '7px solid black' }}
             icon={<img src={logo2} alt="logo" />}
           >
+            <div className='flex mb-3'>
+              <div class="circle">
+                <span class="red box"></span>
+              </div>
+              <div class="circle">
+                <span class="yellow box"></span>
+              </div>
+              <div class="circle">
+                <span class="green box"></span>
+              </div>
+            </div>
             <h2 className="vertical-timeline-element-title text-white">Question</h2> <br />
             <h4 className="vertical-timeline-element-subtitle">1.	One Question Evaluate:</h4>
             <p className='pl-5'>
@@ -157,14 +175,22 @@ const Home = () => {
             dateClassName='text-black'
             iconStyle={{ background: 'black', color: 'white' }}
             contentStyle={{
-              background: "linear-gradient(90deg, hsla(205, 46%, 10%, 1) 0%, hsla(191, 28%, 23%, 1) 50%, hsla(207, 41%, 27%, 1) 100%)",
-              color: 'white',
-              border: "2px solid red",
-              borderBlock: '2px solid #F0F0F0'
+              background: '#011522', color: 'white'
             }}
             contentArrowStyle={{ borderRight: '7px solid black' }}
             icon={<img src={logo3} alt="logo" />}
           >
+            <div className='flex mb-3'>
+              <div class="circle">
+                <span class="red box"></span>
+              </div>
+              <div class="circle">
+                <span class="yellow box"></span>
+              </div>
+              <div class="circle">
+                <span class="green box"></span>
+              </div>
+            </div>
             <h2 className="vertical-timeline-element-title">Script</h2><br />
             <h4 className="vertical-timeline-element-subtitle">1.	Many Question Evaluate:</h4>
             <p className='pl-5'>
@@ -181,14 +207,22 @@ const Home = () => {
             dateClassName='text-black'
             iconStyle={{ background: 'black', color: 'white' }}
             contentStyle={{
-              background: "linear-gradient(90deg, hsla(205, 46%, 10%, 1) 0%, hsla(191, 28%, 23%, 1) 50%, hsla(207, 41%, 27%, 1) 100%)",
-              color: 'white',
-              border: "2px solid red",
-              borderBlock: '2px solid #F0F0F0'
+              background: '#011522', color: 'white'
             }}
             contentArrowStyle={{ borderRight: '7px solid black' }}
             icon={<img src={logo4} alt="logo" />}
           >
+            <div className='flex mb-3'>
+              <div class="circle">
+                <span class="red box"></span>
+              </div>
+              <div class="circle">
+                <span class="yellow box"></span>
+              </div>
+              <div class="circle">
+                <span class="green box"></span>
+              </div>
+            </div>
             <h2 className="text-white">Exam</h2><br />
             <h4 className="vertical-timeline-element-subtitle">3.	Upload Answer Script:</h4>
             <p className='pl-5'>
@@ -208,15 +242,23 @@ const Home = () => {
             dateClassName='text-black'
             iconStyle={{ background: 'black', color: 'white' }}
             contentStyle={{
-              background: "linear-gradient(90deg, hsla(205, 46%, 10%, 1) 0%, hsla(191, 28%, 23%, 1) 50%, hsla(207, 41%, 27%, 1) 100%)",
-              color: 'white',
-              border: "2px solid red",
-              borderBlock: '2px solid #F0F0F0'
+              background: '#011522', color: 'white'
             }}
             contentArrowStyle={{ borderRight: '7px solid black' }}
             icon={<img src={logo1} alt="logo" />}
           >
 
+            <div className='flex mb-3'>
+              <div class="circle">
+                <span class="red box"></span>
+              </div>
+              <div class="circle">
+                <span class="yellow box"></span>
+              </div>
+              <div class="circle">
+                <span class="green box"></span>
+              </div>
+            </div>
             <h2 className="vertical-timeline-element-title">Result</h2><br />
             <h4 className="vertical-timeline-element-subtitle">1.	Upload Answer Script:</h4>
             <p className='pl-5'>
@@ -236,14 +278,22 @@ const Home = () => {
             dateClassName='text-black'
             iconStyle={{ background: 'black', color: 'white' }}
             contentStyle={{
-              background: "linear-gradient(90deg, hsla(205, 46%, 10%, 1) 0%, hsla(191, 28%, 23%, 1) 50%, hsla(207, 41%, 27%, 1) 100%)",
-              color: 'white',
-              border: "2px solid red",
-              borderBlock: '2px solid #F0F0F0'
+              background: '#011522', color: 'white'
             }}
             contentArrowStyle={{ borderRight: '7px solid black' }}
             icon={<img src={logo5} alt="logo" />}
           >
+            <div className='flex mb-3'>
+              <div class="circle">
+                <span class="red box"></span>
+              </div>
+              <div class="circle">
+                <span class="yellow box"></span>
+              </div>
+              <div class="circle">
+                <span class="green box"></span>
+              </div>
+            </div>
             <h2 className="vertical-timeline-element-title">Result</h2><br />
             <h4 className="vertical-timeline-element-subtitle">2.	Result Navigation:</h4>
 

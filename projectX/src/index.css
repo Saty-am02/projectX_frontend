@@ -11,10 +11,7 @@ h2{
 h2{
   font-family: Saveurround;
 }
-body
-{
-  /* background-color: #F8FCEB; */
-}
+
 @font-face {
   font-family: Empyrean;
   src: url("./fonts/Empyrean.otf") format("opentype");
@@ -36,9 +33,6 @@ input[type=number] {
   src: url("./fonts/metro-time-sign.ttf") format("opentype");
 }
 
-.timeLine{
-
-}
 @font-face {
   font-family: Saveurround;
   src: url("./fonts/saveurround.ttf") format("opentype");
@@ -77,7 +71,6 @@ body:has(.card[data-color="green"]:hover) {
     @apply bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent;
   }
 
-  
 
   .textarea {
     @apply block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-200 focus:ring-blue-500 focus:border-blue-500 mt-2.5 font-normal  ;
@@ -88,11 +81,11 @@ body:has(.card[data-color="green"]:hover) {
   }
 
   .header {
-    @apply flex justify-between items-center sm:px-20 gap-x-20 px-1 py-4 max-w-xl mx-auto absolute top-0 z-10 right-0 left-0;
+    @apply flex justify-between items-center sm:px-20 gap-x-20 px-1 py-4 max-w-2xl mx-auto absolute top-0 z-10 right-0 left-0;
   }
 
   .Evaluateheader {
-    @apply flex justify-center items-center text-base sm:px-20 gap-x-20 px-1 py-4 max-w-6xl mx-auto absolute top-14 z-10 right-0 left-0;
+    @apply flex flex-col justify-start items-start text-base py-4 gap-y-20 max-h-screen px-4 max-w-sm absolute top-20 rounded-xl mx-5 z-10 right-0 left-0;
   }
 
   .footer {
@@ -266,4 +259,91 @@ body:has(.card[data-color="green"]:hover) {
 }
 
 
+.custum-file-upload {
+  height: 200px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  gap: 20px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #cacaca;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 48px 35px -48px rgba(0,0,0,0.1);
+}
 
+.custum-file-upload .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custum-file-upload .icon svg {
+  height: 80px;
+  fill: rgba(75, 85, 99, 1);
+}
+
+.custum-file-upload .text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custum-file-upload .text span {
+  font-weight: 400;
+  color: rgba(75, 85, 99, 1);
+}
+
+.custum-file-upload input {
+  display: none;
+}
+
+
+.buttons {
+  font-family: monospace;
+  font-size: 1.5rem;
+  color: black;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #000000;
+  background: #FFFFFF;
+  box-shadow: 3px 3px #000000;
+  cursor: pointer;
+  margin: 35px 0;
+}
+
+.buttons:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+.circle {
+  padding: 0 4px;
+ }
+ 
+ .box {
+  display: inline-block;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  padding: 1px;
+  border-radius: 50%;
+ }
+ 
+ .red {
+  background-color: #ff605c;
+ }
+ 
+ .yellow {
+  background-color: #ffbd44;
+ }
+ 
+ .green {
+  background-color: #00ca4e;
+ }
+ 
