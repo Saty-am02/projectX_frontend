@@ -9,8 +9,10 @@ const Script = () => {
   const [subjects, setSubjects] = useState([]);
   const [exams, setExams] = useState([]);
   const [totalQuestions, setTotalQuestions] = useState("");
+  const [marks, setMarks] = useState([]);
+  const [questionIds, setQuestionIds] = useState([]);
+  const [files, setFiles] = useState([]);
 
-  const no='8'
   const getExams = async () => {
     const url = "http://127.0.0.1:8000/examIDs";
     try {
@@ -50,8 +52,45 @@ const Script = () => {
     }
   };
 
+  const send_data = async(examid, sub, marks, qid, ques, file) => {
+    const queryParams = new URLSearchParams();
+    queryParams.append('exam_id', examid);
+    queryParams.append('subject_id', sub);
+    queryParams.append('mark', marks);
+    queryParams.append('question_id', qid);
+    queryParams.append('question_str', ques);
+
+    const url = 'http://127.0.0.1:8000/evaluate/esupload?' + queryParams.toString();
+    
+    console.log("Sending data: ");
+    console.log("Exam_id: ", examid);
+    console.log("subject_id: ", sub);
+    console.log("mark: ", marks);
+    console.log(qid, ques)
+    console.log("ES: ", files);
+
+    try {
+      const response = await fetch(url,{
+        method: "POST",
+        body: file
+      })
+
+      if(response.ok) {
+        console.log(response)
+      } 
+    } catch(e) {
+      console.log("Error submitting data: ", e);
+    }
+  }
+
   const handleSubmit = (event) => {
-    // Your submit logic here
+    event.preventDefault();
+    
+    for (let i = 0; i < totalQuestions; i++) {
+      const formData = new FormData();
+      formData.append("ES", files[i]);
+      send_data(exam, subject, marks[i], i+1, questionIds[i], formData);
+    }
   };
 
   useEffect(() => {
@@ -97,7 +136,7 @@ const Script = () => {
               >
                 <option value="">Select Subject</option>
                 {subjects.map((subject, index) => (
-                  <option key={index} value={index + 2}>
+                  <option key={index} value={subject}>
                     {subject}
                   </option>
                 ))}
@@ -113,24 +152,31 @@ const Script = () => {
               type="text"
               placeholder="Total Questions"
               value={totalQuestions}
-              onChange={(e) => setTotalQuestions(e.target.value)}
+              onChange={(e) => {
+                setTotalQuestions(e.target.value);
+                setMarks(Array(parseInt(e.target.value)).fill(""));
+                setQuestionIds(Array(parseInt(e.target.value)).fill(""));
+                setFiles(Array(parseInt(e.target.value)).fill(null));
+              }}
             />
           </div>
-
         </div>
 
         <div className="flex flex-row">
-          <TableScript  
-          noquestion={totalQuestions}
+          <TableScript
+            noquestion={totalQuestions}
+            marks={marks}
+            setMarks={setMarks}
+            questionIds={questionIds}
+            setQuestionIds={setQuestionIds}
+            files={files}
+            setFiles={setFiles}
           />
         </div>
 
         <div className="">
           {showSubmitButton && (
-            <button
-              className="buttons"
-              onClick={(event) => handleSubmit(event)}
-            >
+            <button className="buttons" onClick={(event) => handleSubmit(event)}>
               Submit
             </button>
           )}
