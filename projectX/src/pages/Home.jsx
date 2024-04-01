@@ -306,7 +306,7 @@ const Home = () => {
             <p className='pl-5'>
               ⚙︎  See the marks awarded for each question in the detailed view. </p>
             <p className='pl-5'>
-              ⚙︎  Download the student's answer sheet as a JPEG image or PDF file. </p>
+              ⚙︎  Download the student's answer sheet as a CSV file. </p> 
           </VerticalTimelineElement>
         </VerticalTimeline>
 

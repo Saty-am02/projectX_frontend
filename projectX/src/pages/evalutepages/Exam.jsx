@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import TableExam from "../../componetnts/TableExam";
 
 const Exam = () => {
   const [exam, setExam] = useState("");
@@ -65,7 +66,10 @@ const Exam = () => {
 
   return (
     <section>
-      <div className="flex flex-row justify-center items-center relative top-24 gap-y-10">
+      <div className="flex flex-col justify-center items-center relative top-24 gap-y-10">
+        <div className="flex flex-row">
+
+     
         <div class="inputcon">
           <div class="search-container">
             <select
@@ -107,17 +111,25 @@ const Exam = () => {
             </select>
           </div>
         </div>
-        <div className="absolute top-20">
-          {showSubmitButton && (
+        </div>
+        <div className="flex flex-row">
+          <TableExam  
+
+          />
+        </div>
+       
+        <div className="relative -mt-10">
+          {/* {showSubmitButton && ( */}
             <button
               className="buttons"
               onClick={(event) => handleSubmit(event)}
             >
-              Submit
+              Submit Questions
             </button>
-          )}
+          {/* )} */}
         </div>
       </div>
+
     </section>
   );
 };
