@@ -1,15 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+
 const Navbar = () => {
   const [isLogoHovered, setIsLogoHovered] = useState(false);
-
-  const handleLogoMouseEnter = () => {
-    setIsLogoHovered(true);
-  };
-
-  const handleLogoMouseLeave = () => {
-    setIsLogoHovered(false);
-  };
 
   return (
     <header className='header font-saveur text-base sm:text-sm ' >
@@ -20,7 +13,8 @@ const Navbar = () => {
       </nav>
 
       <nav className="flex text-4xl font-medium">
-        <NavLink to="/evaluate" className={({ isActive }) => isActive ? 'text-secondary-400' : ' text-secondary-lightenglishblue'}>
+        <NavLink to="/evaluate" className={({ isActive }) => isActive ? 'text-secondary-400' : ' text-secondary-lightenglishblue'}
+>
           Evaluate
         </NavLink>
       </nav>

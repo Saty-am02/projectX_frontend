@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "../../assets/css/cards.css";
+import TableScript from "../../componetnts/TableScript";
+
 const Script = () => {
   const [exam, setExam] = useState("");
   const [subject, setSubject] = useState("");
   const [showSubmitButton, setShowSubmitButton] = useState(false);
   const [subjects, setSubjects] = useState([]);
   const [exams, setExams] = useState([]);
+  const [totalQuestions, setTotalQuestions] = useState("");
 
+  const no='8'
   const getExams = async () => {
     const url = "http://127.0.0.1:8000/examIDs";
-
     try {
-      let response = await fetch(url, {
-        method: "GET",
-      });
-
+      let response = await fetch(url, { method: "GET" });
       if (response.ok) {
         let jsonData = await response.json();
         setExams(jsonData["Exams"]);
@@ -28,12 +28,8 @@ const Script = () => {
 
   const getSubjects = async () => {
     const url = "http://127.0.0.1:8000/get_subjects";
-
     try {
-      let response = await fetch(url, {
-        method: "GET",
-      });
-
+      let response = await fetch(url, { method: "GET" });
       if (response.ok) {
         let jsonData = await response.json();
         const subjectKeys = Object.keys(jsonData);
@@ -67,11 +63,11 @@ const Script = () => {
     <section>
       <div className="flex flex-col justify-center items-center relative top-24 gap-y-10">
         <div className="flex">
-          <div class="inputcon">
-            <div class="search-container">
+          <div className="inputcon">
+            <div className="search-container">
               <select
                 name="exam"
-                class="input"
+                className="input"
                 value={exam}
                 onChange={(e) => {
                   setExam(e.target.value);
@@ -88,8 +84,8 @@ const Script = () => {
             </div>
           </div>
 
-          <div class="inputcon">
-            <div class="search-container">
+          <div className="inputcon">
+            <div className="search-container">
               <select
                 name="subject"
                 className="input"
@@ -110,16 +106,26 @@ const Script = () => {
           </div>
         </div>
 
-        <div class="inputcon rounded-md">
-          <div class="search-container rounded-md">
+        <div className="inputcon rounded-md">
+          <div className="search-container rounded-md">
             <input
-              class="input-number rounded-md text-center"
+              className="input-number rounded-md text-center"
               type="text"
               placeholder="Total Questions"
+              value={totalQuestions}
+              onChange={(e) => setTotalQuestions(e.target.value)}
             />
           </div>
+
         </div>
-        <div className="absolute top-48">
+
+        <div className="flex flex-row">
+          <TableScript  
+          noquestion={totalQuestions}
+          />
+        </div>
+
+        <div className="">
           {showSubmitButton && (
             <button
               className="buttons"

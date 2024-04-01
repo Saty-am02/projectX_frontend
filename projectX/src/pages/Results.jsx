@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import TableResult from '../componetnts/TableResult';
 
 const Results = () => {
 
@@ -19,9 +20,9 @@ const Results = () => {
   };
   return (
     <section >
-    <div className='flex flex-row justify-center items-center relative top-24 gap-y-10'>
-      
-      <div class="inputcon">
+    <div className='flex flex-col justify-center items-center relative top-24 gap-y-10'>
+      <div className='flex flex-row'>
+      <div class="inputcon ">
         <div class="search-container">
           <select
         name="exam"
@@ -61,11 +62,17 @@ const Results = () => {
       </select>
         </div>
       </div>
-      <div className='absolute top-20'>
+      </div>
+      
+      <div className="flex flex-row">
+          <TableResult 
+          />
+        </div>
+      {/* <div className='absolute top-20'>
           {showSubmitButton && <button
           className='buttons'
           onClick={(event) => handleSubmit(event)}>Submit</button>}
-        </div>
+        </div> */}
     </div>
   </section>
   )

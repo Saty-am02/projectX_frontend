@@ -8,6 +8,7 @@ import Exam from "./pages/evalutepages/Exam";
 import Question from "./pages/evalutepages/Question";
 import Script from "./pages/evalutepages/Script";
 import DevTeam from "./componetnts/DevTeam";
+import TableExam from "./componetnts/TableExam";
 
 const App = () => {
   return (
@@ -16,11 +17,11 @@ const App = () => {
       < Navbar />
         <Routes>   
           <Route path="/" element={<Home />} />
+
           <Route path="/evaluate" element={
                                           <>
                                           <Evaluate />
                                           <EvalutionNavbar />
-                                        
                                           </>
                                           }>
                                             <Route path="script" element={<Script />} />
@@ -29,6 +30,7 @@ const App = () => {
           </Route>
           <Route path="/results" element={<Results />} /> 
           <Route path="/devteam" element={<DevTeam />} />
+          <Route path="/TableExam" element={<TableExam />} />
         </Routes>
       </Router>
       

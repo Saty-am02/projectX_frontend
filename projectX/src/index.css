@@ -347,3 +347,8 @@ body:has(.card[data-color="green"]:hover) {
   background-color: #00ca4e;
  }
  
+ 
+button svg {
+  width: 1.9rem;
+  height: 1.9rem;
+}
