@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../../assets/css/cards.css";
 import TableScript from "../../componetnts/TableScript";
-
+// --------------------------------Evaluate scheme--------------------------------
 const Script = () => {
   const [exam, setExam] = useState("");
   const [subject, setSubject] = useState("");

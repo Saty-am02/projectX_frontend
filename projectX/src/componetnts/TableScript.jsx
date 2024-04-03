@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { MantineReactTable, useMantineReactTable } from 'mantine-react-table';
 
-const TableExam = ({ noquestion, marks, setMarks, questionIds, setQuestionIds, files, setFiles }) => {
+const TableScript = ({ noquestion, marks, setMarks, questionIds, setQuestionIds, files, setFiles }) => {
   // Ensure noquestion is a valid number, default to 0 if not
   const numQuestions = parseInt(noquestion) || 0;
 
@@ -50,7 +50,7 @@ const TableExam = ({ noquestion, marks, setMarks, questionIds, setQuestionIds, f
       },
       {
         accessorKey: 'address',
-        header: 'Address',
+        header: 'Questions',
         Cell: ({ row, updateData }) => (
           <input
             type="text"
@@ -101,4 +101,4 @@ const TableExam = ({ noquestion, marks, setMarks, questionIds, setQuestionIds, f
   return <MantineReactTable table={table} />;
 };
 
-export default TableExam;
+export default TableScript;
