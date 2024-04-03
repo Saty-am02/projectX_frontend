@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-
+import DonutChart from '../../componetnts/DonutChart';
 const Question = () => {
   const [question, setQuestion] = useState('');
   const [marks, setMarks] = useState('');
@@ -149,6 +149,7 @@ const Question = () => {
           <label className='text-secondary-lightenglishblue -mt-9'>{expectedAnswerFileName}</label>
         </div>
         </div>
+        
 
         <div className='absolute top-96 mt-28'>
           {showSubmitButton && <button
@@ -156,7 +157,7 @@ const Question = () => {
           onClick={(event) => handleSubmit(event)}>Submit</button>}
         </div>
       </div>
-
+          <DonutChart />
     </section>
   );
 };
