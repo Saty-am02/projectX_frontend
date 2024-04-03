@@ -8,7 +8,7 @@ import Exam from "./pages/evalutepages/Exam";
 import Question from "./pages/evalutepages/Question";
 import Script from "./pages/evalutepages/Script";
 import DevTeam from "./componetnts/DevTeam";
-import TableExam from "./componetnts/TableExam";
+import DonutChart from "./componetnts/DonutChart";
 
 const App = () => {
   return (
@@ -30,7 +30,8 @@ const App = () => {
           </Route>
           <Route path="/results" element={<Results />} /> 
           <Route path="/devteam" element={<DevTeam />} />
-          <Route path="/TableExam" element={<TableExam />} />
+
+          <Route path="/doutchart" element={<DonutChart />} />
         </Routes>
       </Router>
       
