@@ -1,89 +1,68 @@
-import { useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { MantineReactTable, useMantineReactTable } from 'mantine-react-table';
 
-//nested data is ok, see accessorKeys in ColumnDef below
-const data = [
-  {
-    name: {
-      firstName: 'Zachary',
-      lastName: 'Davis',
-    },
-    address: '261 Battle Ford',
-    city: 'Columbus',
-    state: 'Ohio',
-  },
-  {
-    name: {
-      firstName: 'Robert',
-      lastName: 'Smith',
-    },
-    address: '566 Brakus Inlet',
-    city: 'Westerville',
-    state: 'West Virginia',
-  },
-  {
-    name: {
-      firstName: 'Kevin',
-      lastName: 'Yan',
-    },
-    address: '7777 Kuhic Knoll',
-    city: 'South Linda',
-    state: 'West Virginia',
-  },
-  {
-    name: {
-      firstName: 'John',
-      lastName: 'Upton',
-    },
-    address: '722 Emie Stream',
-    city: 'Huntington',
-    state: 'Washington',
-  },
-  {
-    name: {
-      firstName: 'Nathan',
-      lastName: 'Harris',
-    },
-    address: '1 Kuhic Knoll',
-    city: 'Ohiowa',
-    state: 'Nebraska',
-  },
-];
+const TableExam = ({ noquestion }) => {
+  const [files, setFiles] = useState(Array(noquestion).fill(null));
 
-const Example = () => {
-  //should be memoized or stable
+  // Function to handle file upload
+  const handleFileUpload = (event, index) => {
+    const uploadedFile = event.target.files[0];
+    setFiles((prevFiles) => {
+      const newFiles = [...prevFiles];
+      newFiles[index] = uploadedFile;
+      return newFiles;
+    });
+  };
+
+  const handleIconClick = (index) => {
+    document.getElementById(`file-${index}`).click();
+  };
+
   const columns = useMemo(
     () => [
       {
-        accessorKey: 'name.firstName', //access nested data with dot notation
-        header: 'First Name',
+        accessorKey: 'name.firstName',
+        header: 'Question Id',
+        Cell: ({ row }) => <span className='text-center flex justify-center items-center'>{row.index+1}</span>
       },
+      
       {
-        accessorKey: 'name.lastName',
-        header: 'Last Name',
-      },
-      {
-        accessorKey: 'address', //normal accessorKey
-        header: 'Address',
-      },
-      {
-        accessorKey: 'city',
-        header: 'City',
-      },
-      {
-        accessorKey: 'state',
-        header: 'State',
+        accessorKey: 'answerFile',
+        header: 'Answer File',
+        Cell: ({ row }) => (
+          <label htmlFor={`file-${row.id}`} className='flex justify-center items-center'>
+            {files[row.id] && <span>{files[row.id].name}</span>}
+            <input type="file" id={`file-${row.id}`} style={{ display: 'none' }} onChange={(e) => handleFileUpload(e, row.id)} />
+            <button className='flex justify-center items-center' onClick={() => handleIconClick(row.id)}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125" stroke="#fffffff" strokeWidth="2"></path>
+                <path d="M17 15V18M17 21V18M17 18H14M17 18H20" stroke="#fffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
+              </svg>
+            </button>
+            {files[row.id] && (
+              <button className='bg-blue-500 text-white text-center px-3 py-1 rounded-lg ml-2'>Upload</button>
+            )}
+          </label>
+        ),
       },
     ],
-    [],
+    [files]
   );
+
+  const tableData = useMemo(() => {
+    const rows = [];
+    for (let i = 0; i < 5; i++) {
+      rows.push({ id: i });
+    }
+    return rows;
+  }, [noquestion]);
 
   const table = useMantineReactTable({
     columns,
-    data, //must be memoized or stable (useState, useMemo, defined outside of this component, etc.)
+    data: tableData,
   });
 
   return <MantineReactTable table={table} />;
 };
 
-export default Example;
+export default TableExam;
