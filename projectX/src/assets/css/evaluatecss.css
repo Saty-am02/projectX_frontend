@@ -1,6 +1,7 @@
-.card {
-    max-width: 320px;
+.cards {
     display: flex;
+    width: 60vw;
+    height: 50vh;
     flex-direction: column;
     border-radius: 1.5rem;
     background-color: rgba(0, 0, 0, 1);
