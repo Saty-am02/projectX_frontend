@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { MantineReactTable, useMantineReactTable } from 'mantine-react-table';
 
-const TableExam = ({ noquestion }) => {
+const TableExam = ({ noquestion, examId, subjectId, studentId, onUpload }) => {
   const [files, setFiles] = useState(Array(noquestion).fill(null));
 
   // Function to handle file upload
@@ -16,6 +16,26 @@ const TableExam = ({ noquestion }) => {
 
   const handleIconClick = (index) => {
     document.getElementById(`file-${index}`).click();
+  };
+
+  const handleUpload = (index) => {
+    const file = files[index];
+    if (file) {
+      const formData = new FormData();
+      formData.append('exam_id', examId);
+      formData.append('subject_id', subjectId);
+      formData.append('student_id', studentId);
+      formData.append('question_id', index + 1); // Assuming question IDs start from 1
+      formData.append('file', file);
+
+      console.log("Sending data: ", {
+        "Exam ID": examId,
+        "Subject ID": subjectId,
+        "Student": studentId,
+        "Question": index + 1,
+        "File": file
+      });
+    }
   };
 
   const columns = useMemo(
@@ -40,7 +60,7 @@ const TableExam = ({ noquestion }) => {
               </svg>
             </button>
             {files[row.id] && (
-              <button className='bg-blue-500 text-white text-center px-3 py-1 rounded-lg ml-2'>Upload</button>
+              <button className='bg-blue-500 text-white text-center px-3 py-1 rounded-lg ml-2' onClick={() => handleUpload(row.id)}>Upload</button>
             )}
           </label>
         ),
@@ -51,7 +71,7 @@ const TableExam = ({ noquestion }) => {
 
   const tableData = useMemo(() => {
     const rows = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < noquestion; i++) {
       rows.push({ id: i });
     }
     return rows;
